@@ -164,7 +164,7 @@ Functions of **three or more variables** are defined similarly, but of course di
 	- Note, this is **not always possible**
 		- The resulting equation may be an invalid function; when $z$ does not appear in the original function at all, or when $z$ is composed with even powers or even radicals (then the resulting equation will have a $\pm$, but we can make this valid by choosing one side)
 		- If $z$ appears both inside linear or polynomials terms and transcendental terms (ex. $e^z$ or trigonometric functions) in the original function then there is no algebraic way to isolate $z$, even though a unique $z$ may still exist for every $(x, y)$
-	- Conversely, we can also determine a three-variable function $g$ for which a two-variable function $f$ is the level surface for $g(x,y,z)=0$ by setting $g(x,y,z)=f(x,y)-z=0$; note this is a function that has this level curve, but it is **not unique** by any means!
+	- **Conversely**, we can also determine a three-variable function $g$ for which a two-variable function $f$ is the level surface for $g(x,y,z)=0$ by setting $g(x,y,z)=f(x,y)-z=0$; note this is a function that has this level curve, but this $g$ is **not unique** by any means!
 ### <u>[12.4]: Linear Functions</u>
 **Linear functions** of two variables take the form $z=ax+by+c$ (sometimes given as as $ax+by-z=-c$) and represent **planes** in $\mathbb{R}^{3}$
 - **Any** other composition will make the functions nonlinear (ex. $z=xy$, or $z=x^2+y$, etc.)
@@ -217,6 +217,7 @@ Conversely, to prove the **existence and value** of a limit we can:
 
 **Continuity** is defined once again by the property:$$\lim_{(x,y) \to (a,b)} f(x,y) = f(a,b)$$We say that $f$ is **continuous on its domain** if it continuous at each point in its domain
 - Limits of known continuous functions, like polynomials or quotients of them, can again be evaluated by simply substituting in the point $(a,b)$
+- It follows that we can determine **discontinuity** at a point $(a,b)$ either by showing that the **limit does not exist** as before, or by showing $\lim_{(x,y) \to (a,b)} f(x,y) \neq f(a,b)$
 
 The **Squeeze Theorem** holds for multiple variable functions; this is often useful when $f$ is a quotient of polynomials; then we can bound it by terms in the numerator, and if the bounds converge to the same limit then so does $f$
 - Ex.: for $f(x,y)=\frac{5xy^4}{x^2+y^2}$, determine existence and value of $\lim_{ (x,y) \to (0,0) }{f(x,y)}$
