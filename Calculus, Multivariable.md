@@ -15,6 +15,10 @@ We can easily derive that the **distance** between two points in $\mathbb{R}^{3}
 - The equation of a **sphere** centered at $(a,b,c)$ with radius $\sqrt{ r }$ now follows as $(x-a)^{2}+(y-b)^{2}+(z-c)^{2}=r$
 - Often we have equations of the form $x^{2}+y^{2}+z^{2}+ax+by+cz+d=0$; these actually represent spheres as well, and we can reveal that by grouping terms and **completing the square**:
 	- Ex. $x^{2}+y^{2}+z^{2}+4x+6y+2z+6=0$ goes to $(x^{2}+4x+4)+(y^{2}+6y+9)+(z^{2}+2z+1)=-6+4+9+1$ and finally to $(x+2)^{2}+(y+3)^{2}+(z+1)^{2}=8$
+
+Consider that surfaces representing functions in $\mathbb{R}^3$ can have:
+- **Any number** of $x$-**intercepts** and $y$-**intercepts**; this includes the possibilities of zero or infinite intercepts as well
+- **Zero or one** $z$-**intercepts**; if the function is defined at the origin then the value $f(0,0)$ is the $z$-intercept, otherwise if $f(0,0)$ is not defined then there is no $z$-intercept 
 ### <u>12.2: Vectors</u>
 **Vectors** indicate quantities that have both **magnitude** and **direction**
 - Vectors $\mathbf{a}, \mathbf{b}$ are **equivalent** (ie. $\mathbf{a}=\mathbf{b}$) if they have the same magnitude and direction, even if they are in different positions
@@ -166,7 +170,7 @@ Functions of **three or more variables** are defined similarly, but of course di
 		- If $z$ appears both inside linear or polynomials terms and transcendental terms (ex. $e^z$ or trigonometric functions) in the original function then there is no algebraic way to isolate $z$, even though a unique $z$ may still exist for every $(x, y)$
 	- **Conversely**, we can also determine a three-variable function $g$ for which a two-variable function $f$ is the level surface for $g(x,y,z)=0$ by setting $g(x,y,z)=f(x,y)-z=0$; note this is a function that has this level curve, but this $g$ is **not unique** by any means!
 ### <u>[12.4]: Linear Functions</u>
-**Linear functions** of two variables take the form $z=ax+by+c$ (sometimes given as as $ax+by-z=-c$) and represent **planes** in $\mathbb{R}^{3}$
+**Linear functions** of two variables take the form $z=ax+by+c$ (often given as as $ax+by-z=-c$) and represent **planes** in $\mathbb{R}^{3}$
 - **Any** other composition will make the functions nonlinear (ex. $z=xy$, or $z=x^2+y$, etc.)
 - The defining feature of a linear function of two variables is that the **slopes** $\frac{\Delta z}{\Delta x}$ at a fixed $y$ and $\frac{\Delta z}{\Delta y}$ at a fixed $x$ are **constant** (in cross-section terms; the cross-sections of a plane are lines)
 	- These slopes are also the same **regardless of the fixed value**; in fact, the slope of a plane along any **one direction** is always the same constant regardless of the initial point
@@ -187,10 +191,15 @@ Overall, we are equipped for several scenarios with **determining equations of p
 	- A given $(x_{0},y_{0},z_{0})$ or $f(x_{0},y_{0})$ and given slopes allow us to simply express the plane as a function $z=m(x-x_0)+n(y-y_0)+z_0$
 	- Note, we can easily rearrange this function format into the standard form like $-mx-ny+z=-mx_{0}-ny_{0}+z_{0}$
 2. A single point and a normal vector:
-	- A given $(x_{0},y_{0},z_{0})$ or $f(x_{0},y_{0})$ and a normal vector $\mathbf{n}=a\mathbf{i}+b\mathbf{j}+c\mathbf{k}$ allow us to express the plane in standard form relative to an arbitrary displacement vector $(x,y,z)$ where $a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0$, or $ax+by+cz=d=ax_{0}+by_{0}+cz_{0}$
+	- A given $(x_{0},y_{0},z_{0})$ or $f(x_{0},y_{0})$ and a normal vector $\mathbf{n}=a\mathbf{i}+b\mathbf{j}+c\mathbf{k}$ allow us to express the plane in **standard form** relative to an arbitrary displacement vector $(x,y,z)$ where $a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0$, or $ax+by+cz=d=ax_{0}+by_{0}+cz_{0}$
 3. A set of $3$ points, provided all $3$ points **do not lie on the same line**:
 	- If we are given points that pairwise lie parallel to the $x$ and $y$ axes, then we can simply use the difference in $z$ between those points to calculate $m,n$, and use those with any of the given points as $(x_{0},y_{0},z_{0})$ to determine our function as in method *1*
 	- If we are not given points that pairwise lie along axes, we use the displacement vectors to cross product to normal vector method instead, and then refer to method *2*
+
+Lines in $\mathbb{R}^3$ are fully determined by a point and a parameterized direction vector; planes are not fully determined by a point and a contained vector because we also need their orientation
+- The orientation of a plane is determined by a normal vector to the plane; normal vectors to a plane are parallel to **all** vectors contained in the plane
+	- Two planes are parallel if their normal vectors are parallel (ie. the normal vectors are scalar multiples of each other)
+	- If two planes are not parallel, then they necessarily **intersect in a straight line** (the set of points which satisfies both equations is the line), and the angle between the two planes is defined as the acute angle between their normal vectors
 ### <u>14.2: Limits and Continuity</u>
 For a function $f$ whose domain includes points arbitrarily close to but not necessarily equal to $(a,b)$, we say that the **limit** of $f(x,y)$ as $(x,y)$ approaches $(a,b)$ is $L$ as:
 $$
@@ -204,7 +213,7 @@ For single variable functions, determining that a limit **does not exist** invol
 - However, our definition of the limit above only specified that we must be within a certain radius $\delta$, so if a limit exists then it must approach the same value regardless of where specifically within the circle of radius $\delta$ the direction of approach lies
 - All **limit laws** apply the same as they did for single variable functions
 
-We can show that a limit **does not exist** by finding **at least two paths** along which the function takes on different values as we approach $(a,b)$; the simplest paths to check are the $x$-axis and $y$-axis since one value will remain constant throughout in each path
+We can show that a **limit does not exist** by finding **at least two paths** along which the function takes on different values as we approach $(a,b)$; the simplest paths to check are the $x$-axis and $y$-axis since one value will remain constant throughout in each path
 - Other simple paths to check are $y=x$ where we can just substitute $y$s for $x$s in the function, or more generally $y=mx$ for any given $m$ which allows us to substitute $mx$s and get a parameterized expression for any given straight line through the origin in the $xy$-plane
 - Note, we can pick **any curve as a path**, for ex. $y=x^2$ etc., as long as it **approaches the point** in the limit, ex. take $y=kx^2$ for any $k\neq 0$:
 $$
@@ -266,7 +275,7 @@ Consider a surface $S$ defined by a function $z=f(x,y)$ which has **continuous p
 $$f_{x}(x_{0},y_{0})(x-x_{0})+f_{y}(x_{0},y_{0})(y-y_{0})+z_{0}=z$$
 	- Note, $x_{0},y_{0}$ are just constants given by our chosen point, as is $z_{0}$ which is just $f(x_{0},y_{0})$, as are $f_{x}(x_{0},y_{0}),f_{y}(x_{0},y_{0})$ since these are evaluated at the specific point; we can make it clearer that this equation is a **local linearization** of $f(x,y)$ by rewriting for $P(a,b,f(a,b))$ as:
 $$f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)+f(a,b)=z$$
-	- And finally by local linearity, we claim that the function is approximated by the plane above; $f(x,y)\approx f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)+f(a,b)$, which is the **linear approximation** of $f$
+	- And finally by local linearity, we claim that the function is approximated by the tangent plane; $f(x,y)\approx f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)+f(a,b)$, which is the **linear approximation** of $f$
 	- Local linearizations of functions of three or more variables follow the same pattern  
 
 
@@ -280,11 +289,16 @@ For differentiable functions of three or more variables, this pattern continues 
 ### <u>14.5: The Chain Rule</u>
 With single variable functions that are compositions of several functions, we often ended up having to do long complicated sequences of applications of the product and quotient rules, followed by the chain rule, etc. Multivariable calculus introduces a more general chain rule from which those rules follow.
 
+Recall the single variable Chain Rule for $f(g(x))$: 
+$$
+\frac{df}{dx}=\frac{df}{dg}\frac{dg}{dx}
+$$
+
 **The Multivariable Chain Rule:** suppose $f$ is a differentiable function of the $n$ variables $x_{1},x_{2},\dots,x_{n}$, and each $x_{j}$ is itself a differentiable function of some combination of the $m$ variables $t_{1},t_{2},\dots,t_{m}$, then $f$ is a function of $t_{1},t_{2},\dots,t_{m}$ and for each $i=1,2,\dots,m$:
 $$
-\frac{\partial f}{\partial t_{i}}=\frac{\partial f}{\partial x_{1}}\frac{\partial x_{1}}{d_{t_{i}}}+\frac{\partial f}{\partial x_{2}}\frac{\partial x_{2}}{d_{t_{i}}}+\cdots+\frac{\partial f}{\partial x_{n}}\frac{\partial x_{n}}{d_{t_{i}}}
+\frac{\partial f}{\partial t_{i}}=\frac{\partial f}{\partial x_{1}}\frac{\partial x_{1}}{\partial_{t_{i}}}+\frac{\partial f}{\partial x_{2}}\frac{\partial x_{2}}{\partial_{t_{i}}}+\cdots+\frac{\partial f}{\partial x_{n}}\frac{\partial x_{n}}{\partial_{t_{i}}}
 $$
-Note this is a **partial derivative**; $f$ is a function of the $m$ variables $t_{1},t_{2},\dots,t_{m}$ but we can only calculate the derivative with respect to one variable at a time.
+Note this is a **partial derivative**; $f$ is a function of the $m$ variables $t_{1},t_{2},\dots,t_{m}$ but we can only calculate the derivative with respect to one variable at a time
 - Each $x_{j}$ is called an **intermediate variable** and each $t_{i}$ is called an **independent variable**
 - The simplest scenario is an $f(x,y)$ where $x=g(t)$ and $y=h(t)$, then we have a **single independent variable** $t$ and we could do single variable differentiation, but the multivariable version $\frac{df}{dt}=\frac{\partial f}{\partial x}\frac{dx}{dt}+\frac{\partial f}{\partial y}\frac{dy}{dt}$ reveals where the single variable differentiation rules come from
 	- Notice that this is a regular derivative and contains some partials and some regular derivatives inside, since this a just single variable function which we are breaking down into multiple functions
