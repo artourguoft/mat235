@@ -263,9 +263,11 @@ If $f$ has continuous first and second order partial derivatives, then the **Tay
 - $f(x,y)\approx Q(x,y)=f(a,b)+f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)+\frac{f_{xx}(a,b)}{2}(x-a)^2+f_{xy}(a,b)(x-a)(y-b)+\frac{f_{yy}(a,b)}{2}(y-b)^2$
 Recall, the property we need is that taking the partial derivatives of the Taylor Polynomial gives us the exact partial derivatives of the function.
 ### <u>14.4: Tangent Planes and  Linear Approximations</u>
-Recall **local linearity**; as we look at increasingly smaller intervals of a single variable function, it begins to resemble a linear function; specifically the function of the line tangent to the centre of the interval. Similarly for functions of two variables as we zoom on to a point on the surface, the function begins to resemble the plane tangent to that point, and said plane is of course described by a linear function of two variables.
-- Specifically, the $x$ and $y$ direction slopes of the tangent plane are described by the partial derivatives at the given point
-- This can also be observed as we zoom in to a contour diagram of a function; it begins to resemble the level curves of a linear function, ie. equally spaced, parallel lines
+Recall **local linearity**; as we look at increasingly smaller intervals of a **differentiable** single variable function, it begins to resemble a linear function; specifically the function of the line tangent to the centre of the interval
+
+Similarly for functions of two variables, as we zoom on to a point on the surface where the underlying function is **differentiable**, the surface begins to resemble the plane tangent to that point, and said plane is of course described by a linear function of two variables
+- Specifically, the $x$ and $y$ direction slopes of the tangent plane are described by the respective partial derivatives at the given point
+- This can also be observed as we zoom in to a contour diagram of a function; it begins to resemble the **level curves of a linear function**, ie. equally spaced, parallel lines
 
 Consider a surface $S$ defined by a function $z=f(x,y)$ which has **continuous partial derivatives**. Then for a point $P(x_{0},y_{0},z_{0})$ on $S$, consider the cross sections defined by $y=y_{0}$ and $x=x_{0}$. The derivatives of the two curves defined by these cross sections are the partial derivatives $f_{x}(x,y_{0})$ and $f_{y}(x_{0},y)$. Then, the **tangent plane** to $P$ is the plane that **contains the tangent lines of these two curves specifically** at $y_{0}$ and $x_{0}$.
 - In fact, the tangent plane contains **all possible tangent lines** of all curves that **lie on** $S$ **and pass through** $P$
@@ -309,7 +311,9 @@ Note this is a **partial derivative**; $f$ is a function of the $m$ variables $t
 	- It is helpful to think of these partial derivatives as a tree graph with each edge being a partial derivative of the upper depth with respect to the lower
 		- The top node is the dependent variable to which each intermediate variable is connected, and the relevant independent variables are then connected to each intermediate
 		- Then, if we know the partial we want to determine, we go down the tree through edge to each intermediate and from there to the relevant independent and product those partials, and then sum all these products from each intermediate
-- The given values vary in questions regarding the Chain Rule; sometimes the values of the partials of the intermediate variables are given, sometimes the values of the independent variables are given so you re-express the intermediate partials in terms of the relevant independent variable, etc.
+- The given values vary in questions regarding the Chain Rule
+	- Sometimes the **values of the partials of the intermediate variables** are given; those can just be substituted into the Chain Rule expression directly
+	- Most of the time the **expressions of the intermediate variables with regards to the independent variables** are given; then we **re-express the intermediate partials in terms of the relevant independent variable**
 ### <u>14.6: Directional Derivatives and the Gradient Vector</u>
 Partial derivatives with respect to $x,y$ gave us the rates of change in the positive directions of the axes, that is in the directions of the unit vectors $\mathbf{i}$ and $\mathbf{j}$. As it were, partial derivatives were just special cases of directional derivatives. We can determine the rate of change in any direction marked by an arbitrary **unit** vector $\mathbf{u}$. In $\mathbb{R}^3$, this is the rate of change of the curve that is the intersection of the vertical plane defined by $\mathbf{u}$ and the surface of the function.
 
