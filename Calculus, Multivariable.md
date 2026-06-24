@@ -177,21 +177,24 @@ Functions of **three or more variables** are defined similarly, but of course di
 	- These properties of linear functions are also visible in **tabular form**, where the **rows and columns each have constant linear increments** throughout (ie. same slope between all rows, and another between all columns)
 	- These properties of linear functions are also visible in contour maps, where all level curves are **parallel**, **equally-spaced** straight lines each of which represent the linear combinations of $(x,y)$ for that given $z$
 
-For a linear function, if we know the value of the function at some given point $(x_0,y_0,z_0)$ and we know the slope $m$ in the $x$ direction and $n$ in the $y$ direction, then we can determine the function as: 
+For a linear function, if we know the value of the function at some given point $(x_0,y_0,z_0)$ and we know the slope $m$ in the $x$ direction and $n$ in the $y$ direction, then we can determine the function as the **point-slope form of a plane**: 
 $$
 \begin{align}
 f(x,y)&=z=m(x-x_0)+n(y-y_0)+z_0 \\
 f(x,y)&=z=mx+ny+c, \quad \text{where the $z$-intercept is $c=z_0-mx_0-ny_0=f(0,0)$}
 \end{align}
 $$
-Note, there are also **directional slopes** as we move along any other line on the $xy$ plane; more on that topic later, for now we consider only the slopes above. 
+Note, there are also **directional slopes** as we move along any other line on the $xy$ plane; more on that topic later, for now we consider only the slopes above. Also note this can easily be turned into the **standard form of a plane**:
+$$
+f(x,y)=z=m(x-x_0)+n(y-y_0)+z_0 \iff mx+ny-z=mx_{0}+ny_{0}-z_{0}
+$$
 
 Overall, we are equipped for several scenarios with **determining equations of planes**; a plane can be determined by just:
 1. A single point and both slopes:
 	- A given $(x_{0},y_{0},z_{0})$ or $f(x_{0},y_{0})$ and given slopes allow us to simply express the plane as a function $z=m(x-x_0)+n(y-y_0)+z_0$
 	- Note, we can easily rearrange this function format into the standard form like $-mx-ny+z=-mx_{0}-ny_{0}+z_{0}$
 2. A single point and a normal vector:
-	- A given $(x_{0},y_{0},z_{0})$ or $f(x_{0},y_{0})$ and a normal vector $\mathbf{n}=a\mathbf{i}+b\mathbf{j}+c\mathbf{k}$ allow us to express the plane in **standard form** relative to an arbitrary displacement vector $(x,y,z)$ where $a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0$, or $ax+by+cz=d=ax_{0}+by_{0}+cz_{0}$
+	- A given $(x_{0},y_{0},z_{0})$ or $f(x_{0},y_{0})$ and a normal vector $\mathbf{n}=a\mathbf{i}+b\mathbf{j}+c\mathbf{k}$ allow us to express the plane in standard form relative to an arbitrary displacement vector $(x,y,z)$ where $a(x-x_{0})+b(y-y_{0})+c(z-z_{0})=0$, or $ax+by+cz=d=ax_{0}+by_{0}+cz_{0}$
 3. A set of $3$ points, provided all $3$ points **do not lie on the same line**:
 	- If we are given points that pairwise lie parallel to the $x$ and $y$ axes, then we can simply use the difference in $z$ between those points to calculate $m,n$, and use those with any of the given points as $(x_{0},y_{0},z_{0})$ to determine our function as in method *1*
 	- If we are not given points that pairwise lie along axes, we use the displacement vectors to cross product to normal vector method instead, and then refer to method *2*
@@ -253,12 +256,12 @@ Since these partial derivatives **are themselves functions of two variables**, w
 - $(f_{x})_{y}=f_{xy}=\frac{\partial}{\partial y}(\frac{\partial}{\partial x}f)=\frac{\partial^{2}}{\partial y \partial x}f=\frac{\partial^{2}}{\partial y \partial x}z=\lim_{ h \to 0 }\frac{f_{x}(x,y+h)-f_{x}(x,y)}{h}$
 - $(f_{y})_{x}=f_{yx}=\frac{\partial}{\partial x}(\frac{\partial}{\partial y}f)=\frac{\partial^{2}}{\partial x\partial y}f=\frac{\partial^{2}}{\partial x \partial y}z=\lim_{ h \to 0 }\frac{f_{y}(x+h,y)-f_{y}(x,y)}{h}$
 
-**Clairaut's Theorem:** suppose $f$ is defined on a disk that contains the point $(a,b)$, and $f_{xy},f_{yx}$ are **both continuous** on this disk, then $f_{xy}(a,b)=f_{yx}(a,b)$. 
+**Clairaut's Theorem:** suppose $f$ is defined on a disk that contains the point $(a,b)$, and $f_{xy},f_{yx}$ are **both continuous** on this disk, then $f_{xy}(a,b)=f_{yx}(a,b)$
 
 Partial derivatives can also be defined for functions of three or more variables, but they are still defined as the change of the dependent variable with respect to a **single independent variable** with all other variables held constant.
 
 
-If $f$ has continuous first and second order partial derivatives, then the **Taylor Polynomials** of degree one and two for $x,y$ around $a,b$ respectively are:
+If the first and second order partial derivatives of $f$ around $(a,b)$ **exist and are continuous**, then the **Taylor Polynomials** of degree one and two for $(x,y)$ around $(a,b)$ respectively are:
 - $f(x,y)\approx L(x,y)=f(a,b)+f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)$
 - $f(x,y)\approx Q(x,y)=f(a,b)+f_{x}(a,b)(x-a)+f_{y}(a,b)(y-b)+\frac{f_{xx}(a,b)}{2}(x-a)^2+f_{xy}(a,b)(x-a)(y-b)+\frac{f_{yy}(a,b)}{2}(y-b)^2$
 Recall, the property we need is that taking the partial derivatives of the Taylor Polynomial gives us the exact partial derivatives of the function.
@@ -321,7 +324,7 @@ Partial derivatives with respect to $x,y$ gave us the rates of change in the pos
 $$
 f_{\mathbf{u}}(x,y)=\lim_{ h \to 0 }\frac{f(x+hu_{x},y+hu_{y})-f(x,y)}{h}
 $$
-Recall from local linearity that the differential $f_{x}(x,y)dx+f_{y}(x,y)dy$ locally approximates $\Delta f$ given that $f$ is **differentiable** at $(x,y)$ (meaning both partials exist and are continuous; will define this in Chapter 14.8), thus as $h\to 0$:
+Recall from local linearity that the differential $f_{x}(x,y)dx+f_{y}(x,y)dy$ locally approximates $\Delta f$ by $df$ given that $f$ is **differentiable** at $(x,y)$ (meaning both partials exist and are continuous; will define this in Chapter 14.8), thus as $h\to 0$:
 $$
 \begin{align}
 f_{\mathbf{u}}(x,y)=\frac{\Delta f}{h}&=\frac{f_{x}(x,y)((x+hu_{x})-x)+f_{y}(x,y)((y+hu_{y})-y)}{h} \\
@@ -330,8 +333,14 @@ f_{\mathbf{u}}(x,y)=\frac{\Delta f}{h}&=\frac{f_{x}(x,y)((x+hu_{x})-x)+f_{y}(x,y
 $$
 If $f$ is **not differentiable** at a point $(x,y)$ (meaning one or both partials do not exist), **we cannot conclude anything about the existence or values of  directional derivatives** at that $(x,y)$. These derivatives would have to be determined from the full definition, without the shortcut identity above.
 
+Then we can also conclude:
+- $f_{x}(a,b)=f_{\mathbf{i}}(a,b)$
+- $f_{y}(a,b)=f_{\mathbf{j}}(a,b)$
+- If $\mathbf{v}$ is not a unit vector, then $f_{\mathbf{v}}(a,b)=f_\frac{\mathbf{v}}{\|\mathbf{v}\|}(a,b)$
+	- It is often more convenient to express this as $(\nabla f(a,b)\cdot \mathbf{v})\frac{1}{\|\mathbf{v}\|}$
 
-Note that the identity above can be expressed as a dot product of two vectors:
+
+Note that the definition of the directional derivative above can be expressed as a dot product of two vectors in $\mathbb{R}^2$:
 $$
 \begin{align}
 f_{\mathbf{u}}(x,y)&=f_{x}(x,y)u_{x}+f_{y}(x,y)u_{y} \\
@@ -354,17 +363,23 @@ $$
 From this we can deduce another relationship between the directional derivative and the gradient:
 - $f_{\mathbf{u}}(x,y)=||\nabla f(x,y)||$ is the **maximum**, and occurs when $\cos\theta=1$ so $\theta=0$; when $\nabla f$ and $\mathbf{u}$ point in the exact **same** direction
 - $f_{\mathbf{u}}(x,y)=-||\nabla f(x,y)||$ is the **minimum**, and occurs when $\cos\theta=-1$ so $\theta=\pi$; when $\nabla f$ and $\mathbf{u}$ point in the exact **opposite** directions
-- $f_{\mathbf{u}}(x,y)=0$ suggests the direction vector is pointing along a level curve, and occurs when $\cos\theta=0$ so $\theta=\pm\frac{\pi}{2}$; when $\nabla f$ and $\mathbf{u}$ are **perpendicular**
+- $f_{\mathbf{u}}(x,y)=0$ suggests the direction vector is pointing in a direction which would keep you **along the same level curve** of the surface, and occurs when $\cos\theta=0$ so $\theta=\pm\frac{\pi}{2}$; when $\nabla f$ and $\mathbf{u}$ are perpendicular
 	- Then we have $\nabla f(x,y)\cdot \mathbf{u}=0$; in the $xy$-plane there are always two such direction vectors pointing in exactly opposite directions, which is intuitive as left and right along a level curve
-The gradient vector **points in the direction of the greatest rate of change at a point** and the **magnitude of the gradient vector is that rate of change**
+The gradient vector **points in the direction of the greatest rate of change at a point** and the **magnitude of the gradient vector is that rate of change** (recall though, the gradient is a vector in $\mathbb{R}^2$)
 - Recall for differentiable $f$, the contour diagram begins to resemble linear contours as we zoom in by local linearity; thus, the gradient points in the direction **perpendicular to the contour** towards the next higher value, since that is the shortest distance / highest rate of change to the next contour
-	- This also means that the magnitude of the gradient is larger between contours that are closer together, and smaller between contours farther apart
+	- This also means that the **magnitude of the gradient is larger between contours that are closer together**, and smaller between contours farther apart
 
 
-All concepts above extend directly to three or more variable functions. Specifically for three variables, gradient vectors are lines in $\mathbb{R}^3$, and are **perpendicular to the level surface** at each given point.
+All concepts above extend directly to three or more variable functions. Specifically for three variables, gradient vectors are lines in $\mathbb{R}^3$, and are **perpendicular to the level surface** at each given point
 - Thus, the gradients here are **normal vectors** to **tangent planes**; with the gradient and given point we can substitute into the dot product with the normal vector form of a plane to determine the tangent plane, ie. $f_{x}(a,b,c)(x-a)+f_{y}(a,b,c)(y-b)+f_{z}(a,b,c)(z-c)=0$ and its simplified form
 	- This is the $\mathbb{R}^3$ extension of the above concept of gradients being perpendicular to contours (and now surfaces), and of direction vectors which are perpendicular to the gradient being along level surfaces (in $\mathbb{R}^3$ these are all direction vectors on the tangent plane to which the gradient is normal)
 ### <u>[14.8]: Differentiability</u>
+Consider how we can reinterpret the definition of differentiability for single variable functions:
+$$
+f'(a)=\lim_{ x \to a }\frac{f(x)-f(a)}{x-a}\iff 0=\lim_{ x \to a }\frac{f(x)-[f(a)+f'(a)(x-a)]}{x-a}\iff 0=\lim_{ x \to a }\frac{f(x)-L(a)}{x-a} 
+$$
+Then the numerator is the error term of the linear approximation around $a$ where $E(a)=f(x)-L(a)$, and the entire term implies that $f$ is differentiable at $a$ when this error goes to $0$ faster than the distance between $x$ and $a$.
+
 A function of two variables $f$ is **differentiable** at $(a,b)$ if there **exists a linear function** $L(x,y)=f(a,b)+m(x-a)+n(y-b)$ such that the error $E(x,y)=f(x,y)-L(x,y)$ satisfies:
 $$
 \lim_{h,k\to 0}\frac{E(a+h,b+k)}{\sqrt{ h^2 +k^2 }}=\frac{f(a+h,b+k)-(f(a,b)+mh+nk)}{\sqrt{ h^2 +k^2 }}=\frac{(f(a+h,b+k)-f(a,b))-(mh+nk)}{\sqrt{ h^2 +k^2 }}=0 
@@ -375,23 +390,29 @@ $$
 $$
 This also means the function is **smooth** around $(a,b)$ meaning it is differentiable and thus continuous. As was the case with single variable functions, continuity$\centernot\implies$differentiability, whereas differentiability$\implies$continuity. A function is differentiable on a region $R$ if it is differentiable at all points on $R$. 
 
-The above also means that a differentiable function at a point **necessarily has both partial derivatives** at that point. Then, to show that a function is **not differentiable**, we can:
+The above also means that a differentiable function at a point **necessarily has both partial derivatives** at that point:
+- Differentiability$\implies f_{x}(a,b), f_{y}(a,b)$ exist
+- Note the converse is not necessarily true; both partial derivatives existing is **does not necessarily imply** differentiability  (**nor** continuity by extension)!
+Then, to show that a function is **not differentiable** at a point $(a,b)$, we can:
 - Show that the relative error limit above is not $0$; this is often impractical, the methods below are used instead
-- Show that **one or both partial derivatives do not exist**
-	- However, both partial derivatives existing is not sufficient and **does not necessarily imply** differentiability **nor** continuity!
-		- But previously in the section on linear approximation, we required only that a function had continuous partial derivatives to determine that it is differentiable and to get a tangent plane? This is where the more specific sufficient condition below comes in!
+	- Show the contrapositive, that **one or both partial derivatives do not exist**
+	- Show that the function is **not continuous** at $(a,b)$; recall, to do this it suffices to show **one path** (usually $x=y$ is easiest) with which the limit of the function at $(a,b)$ is not equal to $f(a,b)$
 
-If the partial derivatives $f_{x},f_{y}$ **exist and are continuous** on a small disk centered at the point $(a, b)$, then $f$ is **differentiable** at $(a, b)$.
+There is a simpler definition; if the partial derivatives $f_{x},f_{y}$ **exist and are continuous** on a small disk centered at the point $(a, b)$, then $f$ is **differentiable** at $(a, b)$
 - This class of functions is termed $C^1$; we can use this theorem to prove that functions are differentiable on some required domain $R$ by determining the partial derivative functions and showing that they are continuous on $R$
+- Intuitively, differentiability at a point $(a,b)$ is defined as the existence of a tangent plane to the surface at that point (following from the existence of continuous partials); similar to the single variable definition with the existence of a tangent line
+Then, to show that a function is differentiable, we can:
+- Show that both partial derivatives exist and are continuous 
 ### <u>14.7: Extrema</u>
 **Fermat's Theorem:** if $f(x,y)$ has a local maximum or local minimum at a point $(a,b)$ and is **differentiable** there (recall, this means $f_{x}(a,b)$ and $f_{y}(a,b)$ exist and are continuous), then $f_{x}(a,b)=f_{y}(a,b)=0$
 - This can also be written in **gradient** form as $\nabla f(a,b)=\mathbf{0}$
 	- It follows from the definition of directional derivative for **differentiable** functions that **all directional derivatives** are also $0$
 	- If the one or both of the partial derivatives do not exist at the point $(a,b)$, then the function is not differentiable at that point and we cannot make any conclusions about the existence or values of various directional derivatives (would have to use definition of directional derivative)
-- This implies that the tangent plane at point $(a,b)$ is **horizontal plane**, since substituting $f_{x}(a,b)=f_{y}(a,b)=0$ into the equation of a plane yields $f(a,b)$
-- Similar to single variable functions, points where $f_{x}(a,b)=f_{y}(a,b)=0$ **or** one of these partials **does not exist**, are called **critical points**
-	- Combined with Fermat's Theorem above, this means **all local extrema are critical points**, but just as it was with single variable functions not all critical points are local extrema!
-If a point $(a,b)$ satisfies $f_{x}(a,b)=f_{y}(a,b)=0$ but is not an extrema, then it is a **saddle point**
+- This implies that the tangent plane at point $(a,b)$ is **horizontal plane**, since substituting $f_{x}(a,b)=f_{y}(a,b)=0$ into the equation of a plane yields the constant $f(a,b)$
+
+Similar to single variable functions, points where $f_{x}(a,b)=f_{y}(a,b)=0$ **or** one or both of these partials **does not exist**, are called **critical points**
+- Combined with Fermat's Theorem above, this means **all local extrema are critical points**, but just as it was with single variable functions **not all critical points are local extrema**!
+If a point $(a,b)$ satisfies $f_{x}(a,b)=f_{y}(a,b)=0$ but is **not** an extrema, then it is a **saddle point**
 - One clear example is $f(x,y)=y^2-x^2$ and the point $f(0,0)$; this a critical point based on the gradient, but around any disk with a positive radius centred on $(0,0)$, $f$ will take on both positive and negative values, ie. it crosses the horizontal tangent plane at $f(0,0)$ (which in this case is the $xy$-plane)
 	- Thus, this point cannot be an extrema, and indeed the graph in this case resembles a saddle (this is not always the case)
 
@@ -406,5 +427,7 @@ Then:
 - If $D>0$ and $f_{xx}(a,b)<0$, then $f(a,b)$ is a **local maximum**
 - If $D<0$, then $f(a,b)$ is a **saddle point**
 - If $D=0$, then we cannot make a conclusion
+
+If $f_{x}(a,b)$ or $f_{y}(a,b)$ does not exist, then we cannot use the Second Derivatives Test to classify the critical point.
 
 One common application of finding local extrema is **determining the shortest distance** between a point $(a,b,c)$ and a plane, which involves finding a point $(x,y,z)$ on the plane. The distance is $d=\sqrt{(x-a)^2+(y-b)^2+(z-c)^2}$, we then express $z$ as a function of $x$ and $y$ (from the given plane equation) and thus get $d^2=f(x,y)$, from where we do the second derivatives test process above.
