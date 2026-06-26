@@ -392,7 +392,7 @@ This also means the function is **smooth** around $(a,b)$ meaning it is differen
 
 The above also means that a differentiable function at a point **necessarily has both partial derivatives** at that point:
 - Differentiability$\implies f_{x}(a,b), f_{y}(a,b)$ exist
-- Note the converse is not necessarily true; both partial derivatives existing is **does not necessarily imply** differentiability  (**nor** continuity by extension)!
+- Note the converse is not necessarily true; both partial derivatives existing is **does not necessarily imply** differentiability (**nor** continuity by extension)!
 Then, to show that a function is **not differentiable** at a point $(a,b)$, we can:
 - Show that the relative error limit above is not $0$; this is often impractical, the methods below are used instead
 	- Show the contrapositive, that **one or both partial derivatives do not exist**
@@ -420,7 +420,7 @@ Once we have **identified critical points** by finding points $(a,b)$ where $f_{
 
 **Second Derivatives Test:** suppose the **second order** partial derivatives of $f$ are **continuous** on a disk centred around a **critical point** $(a,b)$, then define:
 $$
-D=D(a,b)=f_{xx}(a,b)\cdot f_{yy}(a,b)-(f_{xy}(a,b))^2
+D=D(a,b)=(f_{xx}(a,b))(f_{yy}(a,b))-(f_{xy}(a,b))^2
 $$
 Then:
 - If $D>0$ and $f_{xx}(a,b)>0$, then $f(a,b)$ is a **local minimum**
