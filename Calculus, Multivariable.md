@@ -289,7 +289,8 @@ Recall for single variable functions, the tangent line at point $x=a$ is $y=f(a)
 - $dy$, the dependent variable where $dy=f'(x)dx$, so $dy$ is the **change in** $y$ in the tangent line equation above for each given change in $x$, compared to $\Delta y$ which is the change in the value of the function ($dy$ approximates this for small $\Delta x$)
 For differentiable functions of two variables:
 - $dx,dy$ are independent variables where $dx=\Delta x,dy=\Delta y$
-- $dz$ (or $df$) is the **total differential** where $dz=f_{x}(x,y)dx+f_{y}(x,y)dy=\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial x}dy$, so $dz$ is the **change in** $z$ in the **tangent plane** (essentially the local linearization without the $f(a,b)$ part), compared to $\Delta z$ which is the change in the value of the function ($dz$ approximates this for small $\Delta x, \Delta y$)
+- $dz$ (or $df$) is the **total differential** where $dz=f_{x}(x,y)dx+f_{y}(x,y)dy=\frac{\partial z}{\partial x}dx+\frac{\partial z}{\partial x}dy$, so $dz$ is the **change in** $z$ in the **tangent plane**, compared to $\Delta z$ which is the change in the value of the function ($dz$ approximates this for small $\Delta x, \Delta y$)
+	- The differential is essentially the local linearization without taking into account $f(a,b)$ and the difference from point $(a,b)$; ie. $dx$ and $dy$ instead of $(x-a)$ and $(y-b)$
 For differentiable functions of three or more variables, this pattern continues as expected.
 ### <u>14.5: The Chain Rule</u>
 With single variable functions that are compositions of several functions, we often ended up having to do long complicated sequences of applications of the product and quotient rules, followed by the chain rule, etc. Multivariable calculus introduces a more general chain rule from which those rules follow.
