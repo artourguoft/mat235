@@ -462,7 +462,7 @@ However, $\nabla g$ may not always be well defined and nonzero; if $f(x,y)$ has 
 1. $(a,b)$ is an end point of $g(a,b) = k$
 2. $\nabla g(a,b) = \mathbf{0}$
 3. $\nabla f(a,b) = \lambda\nabla g(a,b)$; this is the happy path we defined above, and the condition that we check last
-	- We calculate all the necessary partials then set up the equality above, then substitute back into $f$ or $g$ to solve for $a,b$
+	- We calculate all the necessary partials then set up the equality above, then substitute back into $f$ or $g$ to solve for $a,b$ (or use Lagrangian shortcut below)
 We determine all $(a,b)$ that satisfy any of the conditions above, and evaluate $f$ to determine the correct extrema
 
 If the constraint $g(x,y)\leq k$ is given by an inequality instead of equality, we use the following strategy:
