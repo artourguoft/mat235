@@ -256,7 +256,8 @@ Since these partial derivatives **are themselves functions of two variables**, w
 - $(f_{x})_{y}=f_{xy}=\frac{\partial}{\partial y}(\frac{\partial}{\partial x}f)=\frac{\partial^{2}}{\partial y \partial x}f=\frac{\partial^{2}}{\partial y \partial x}z=\lim_{ h \to 0 }\frac{f_{x}(x,y+h)-f_{x}(x,y)}{h}$
 - $(f_{y})_{x}=f_{yx}=\frac{\partial}{\partial x}(\frac{\partial}{\partial y}f)=\frac{\partial^{2}}{\partial x\partial y}f=\frac{\partial^{2}}{\partial x \partial y}z=\lim_{ h \to 0 }\frac{f_{y}(x+h,y)-f_{y}(x,y)}{h}$
 
-**Clairaut's Theorem:** suppose $f$ is defined on a disk that contains the point $(a,b)$, and $f_{xy},f_{yx}$ are **both continuous** on this disk, then $f_{xy}(a,b)=f_{yx}(a,b)$
+**Clairaut's Theorem:** suppose $f$ is defined on a disk that contains the point $(a,b)$, and **all four second order partial derivatives exist and are continuous** on this disk (meaning $f$ is **smooth**), then $f_{xy}(a,b)=f_{yx}(a,b)$
+	- This definition of smoothness gives us the class of functions called $C^2$; note there are other non equivalent definitions!
 
 Partial derivatives can also be defined for functions of three or more variables, but they are still defined as the change of the dependent variable with respect to a **single independent variable** with all other variables held constant.
 
@@ -335,8 +336,8 @@ $$
 If $f$ is **not differentiable** at a point $(x,y)$ (meaning one or both partials do not exist), **we cannot conclude anything about the existence or values of  directional derivatives** at that $(x,y)$. These derivatives would have to be determined from the full definition, without the shortcut identity above.
 
 Then we can also conclude:
-- $f_{x}(a,b)=f_{\mathbf{i}}(a,b)$
-- $f_{y}(a,b)=f_{\mathbf{j}}(a,b)$
+- $f_{\mathbf{i}}(a,b)=f_{x}(a,b)$
+- $f_{\mathbf{j}}(a,b)=f_{y}(a,b)$
 - If $\mathbf{v}$ is not a unit vector, then $f_{\mathbf{v}}(a,b)=f_\frac{\mathbf{v}}{\|\mathbf{v}\|}(a,b)$
 	- It is often more convenient to express this as $(\nabla f(a,b)\cdot \mathbf{v})\frac{1}{\|\mathbf{v}\|}$
 
@@ -396,11 +397,13 @@ The above also means that a differentiable function at a point **necessarily has
 - Note the converse is not necessarily true; both partial derivatives existing is **does not necessarily imply** differentiability (**nor** continuity by extension)!
 Then, to show that a function is **not differentiable** at a point $(a,b)$, we can:
 - Show that the relative error limit above is not $0$; this is often impractical, the methods below are used instead
-	- Show the contrapositive, that **one or both partial derivatives do not exist**
+	- Show the contrapositive; that **one or both partial derivatives do not exist**, usually from the definition of partial derivatives, especially with piecewise function
+		- In simpler cases it may be possible be possible to simply determine the partial derivative functions and show that they are undefined at some points, etc.
 	- Show that the function is **not continuous** at $(a,b)$; recall, to do this it suffices to show **one path** (usually $x=y$ is easiest) with which the limit of the function at $(a,b)$ is not equal to $f(a,b)$
 
 There is a simpler definition; if the partial derivatives $f_{x},f_{y}$ **exist and are continuous** on a small disk centered at the point $(a, b)$, then $f$ is **differentiable** at $(a, b)$
 - This class of functions is termed $C^1$; we can use this theorem to prove that functions are differentiable on some required domain $R$ by determining the partial derivative functions and showing that they are continuous on $R$
+	- This is another definition of **smoothness**; recall the other definition which gave us $C^2$
 - Intuitively, differentiability at a point $(a,b)$ is defined as the existence of a tangent plane to the surface at that point (following from the existence of continuous partials); similar to the single variable definition with the existence of a tangent line
 Then, to show that a function is differentiable, we can:
 - Show that both partial derivatives exist and are continuous 
@@ -429,6 +432,8 @@ Then:
 - If $D<0$, then $f(a,b)$ is a **saddle point**
 - If $D=0$, then we cannot make a conclusion
 
-If $f_{x}(a,b)$ or $f_{y}(a,b)$ does not exist, then we cannot use the Second Derivatives Test to classify the critical point.
+If **any partials do not exist**, then we **cannot** use the Second Derivatives Test to classify the critical point; we must analyze the function's behaviour around the critical point directly; usually via analyzing both cross sections
+- If either cross section crosses between less than and greater than $f(a,b)$, or if one cross section has a local minimum at the point while another has a local maximum; this suggests a saddle point
+- If both cross sections are less than or greater than $f(a,b)$ around the point; this suggests local extrema
 
 One common application of finding local extrema is **determining the shortest distance** between a point $(a,b,c)$ and a plane, which involves finding a point $(x,y,z)$ on the plane. The distance is $d=\sqrt{(x-a)^2+(y-b)^2+(z-c)^2}$, we then express $z$ as a function of $x$ and $y$ (from the given plane equation) and thus get $d^2=f(x,y)$, from where we do the second derivatives test process above.
