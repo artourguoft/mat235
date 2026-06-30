@@ -414,13 +414,13 @@ Then, to show that a function is differentiable, we can:
 	- If the one or both of the partial derivatives do not exist at the point $(a,b)$, then the function is not differentiable at that point and we cannot make any conclusions about the existence or values of various directional derivatives (would have to use definition of directional derivative)
 - This implies that the tangent plane at point $(a,b)$ is **horizontal plane**, since substituting $f_{x}(a,b)=f_{y}(a,b)=0$ into the equation of a plane yields the constant $f(a,b)$
 
-Similar to single variable functions, points where $f_{x}(a,b)=f_{y}(a,b)=0$ **or** one or both of these partials **does not exist**, are called **critical points**
+Similar to single variable functions, points where both $f_{x}(a,b)=f_{y}(a,b)=0$ **or** one or both of these partials **does not exist**, are called **critical points**
 - Combined with Fermat's Theorem above, this means **all local extrema are critical points**, but just as it was with single variable functions **not all critical points are local extrema**!
 If a point $(a,b)$ satisfies $f_{x}(a,b)=f_{y}(a,b)=0$ but is **not** an extrema, then it is a **saddle point**
 - One clear example is $f(x,y)=y^2-x^2$ and the point $f(0,0)$; this a critical point based on the gradient, but around any disk with a positive radius centred on $(0,0)$, $f$ will take on both positive and negative values, ie. it crosses the horizontal tangent plane at $f(0,0)$ (which in this case is the $xy$-plane)
 	- Thus, this point cannot be an extrema, and indeed the graph in this case resembles a saddle (this is not always the case)
 
-Once we have **identified critical points** by finding points $(a,b)$ where $f_{x}(a,b)=f_{y}(a,b)=0$ or DNE, how do we determine if they are extrema?
+Once we have **identified critical points** by finding points $(a,b)$ where $f_{x}(a,b)=f_{y}(a,b)=0$ or DNE, how do we determine if they are local extrema?
 
 **Second Derivatives Test:** suppose the **second order** partial derivatives of $f$ are **continuous** on a disk centred around a **critical point** $(a,b)$, then define:
 $$
@@ -437,3 +437,40 @@ If **any partials do not exist**, then we **cannot** use the Second Derivatives 
 - If both cross sections are less than or greater than $f(a,b)$ around the point; this suggests local extrema
 
 One common application of finding local extrema is **determining the shortest distance** between a point $(a,b,c)$ and a plane, which involves finding a point $(x,y,z)$ on the plane. The distance is $d=\sqrt{(x-a)^2+(y-b)^2+(z-c)^2}$, we then express $z$ as a function of $x$ and $y$ (from the given plane equation) and thus get $d^2=f(x,y)$, from where we do the second derivatives test process above.
+### <u>[15.2]: Optimization</u>
+If we restrict the domain of a two variable function, the resulting domain can be:
+- **Closed**; meaning the region is one which contains its boundary
+- **Bounded**; meaning the region does not stretch to infinity in any direction
+Regions of $\mathbb{R}^2$ can be bounded but not closed, bounded and closed, or neither
+
+**Extreme Value Theorem for Multi Variable Functions:** if $f$ is a **continuous** function on a **closed and bounded** region $R\subset \mathbb{R}^2$, then $f$ has a global maximum and a global minimum at some points in $R$
+- If $f$ is not continuous over $R$, or $R$ is not closed and bounded, then EVT cannot guarantee the existence of both global extrema
+- This is analogous to the single variable EVT, wherein a continuous function on a closed interval ($\mathbb{R}^2$ analog is a bounded and closed region) is guaranteed to have both global extrema, but no guarantee otherwise
+
+To locate **global extrema** for a function multivariable function on a region of its domain $R\subset \mathbb{R}^2$:
+- Find all critical points of $f$ in the region $R$; ie. $(a,b)\in R$ where $f_{x}(a,b)=0$ and $f_{y}(a,b)=0$ or undefined
+- Evaluate $f$ at the critical points, or classify by the Second Derivatives Test if needed
+- If the region $R$ is **closed**, evaluate $f$ for extrema along the boundaries; ie. consider the boundaries as cross-sections and determine the extrema for the resulting single variable functions
+	- Recall here that critical points of a single variable function $g$ occur when $g'(a)=0$ or undefined; sometimes even this is not needed as the function is monotonically increasing or decreasing
+- If $R$ is **not closed**, then we need to check the limits of the function as we approach the boundaries (recall how multivariable limits work; hold some variable constant and move the relevant variable)
+- If $R$ is **not bounded**, then we need to check the limits of the function as we approach infinities (same as above)
+### <u>[15.3]: Constrained Optimization</u>
+To optimize $f(x, y)$ subject to a constraint $g(x, y) = k$ for some constant $k\in \mathbb{R}$, we want to find the intersection points with the largest $f$ contour value on the graph of the $g$ contour $g(x, y) = k$
+- By definition of contours, extrema should occur at points where the contours of $f$ are tangent to $g(x, y) = k$; ie. at an extremum $(a,b)$, we should have $\nabla f(a,b)=\lambda\nabla g(a,b)$ for some constant $\lambda \in \mathbb{R}$
+
+However, $\nabla g$ may not always be well defined and nonzero; if $f(x,y)$ has an extrema subject to a constraint $g(x,y) = k$ at $(a,b)$, then $(a,b)$ satisfies **one** of:
+1. $(a,b)$ is an end point of $g(a,b) = k$
+2. $\nabla g(a,b) = \mathbf{0}$
+3. $\nabla f(a,b) = \lambda\nabla g(a,b)$; this is the happy path we defined above, and the condition that we check last
+	- We calculate all the necessary partials then set up the equality above, then substitute back into $f$ or $g$ to solve for $a,b$
+We determine all $(a,b)$ that satisfy any of the conditions above, and evaluate $f$ to determine the correct extrema
+
+If the constraint $g(x,y)\leq k$ is given by an inequality instead of equality, we use the following strategy:
+1. Find all points in the region $g(x, y) < k$ where $\nabla f=\mathbf{0}$ or undefined
+2. Find the local extrema of $f$ on the boundary $g(x,y) = k$ using the same process as above
+Then evaluate points found in the previous two steps and compare their values as usual
+
+**Lagrangian Function:** $L(x,y,\lambda) = f(x,y)-\lambda(g(x,y)-k)$
+- Then $(a,b)$ is an extremum under the constraint $g(x,y)=k$ with Lagrange multiplier $\lambda_{c}$ iff $\nabla L(a,b,\lambda_{c})=0$
+	- This gradient gives us a system of equations to solve for $(a,b)$ as a shortcut
+	- Note, endpoints still have to be checked
