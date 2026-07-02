@@ -338,8 +338,7 @@ If $f$ is **not differentiable** at a point $(x,y)$ (meaning one or both partial
 Then we can also conclude:
 - $f_{\mathbf{i}}(a,b)=f_{x}(a,b)$
 - $f_{\mathbf{j}}(a,b)=f_{y}(a,b)$
-- If $\mathbf{v}$ is not a unit vector, then $f_{\mathbf{v}}(a,b)=f_\frac{\mathbf{v}}{\|\mathbf{v}\|}(a,b)$
-	- It is often more convenient to express this as $(\nabla f(a,b)\cdot \mathbf{v})\frac{1}{\|\mathbf{v}\|}$
+- If $\mathbf{v}$ is not a unit vector, then $f_{\mathbf{v}}(a,b)=f_\frac{\mathbf{v}}{\|\mathbf{v}\|}(a,b)$; it is often more convenient to express this as $(\nabla f(a,b)\cdot \mathbf{v})\frac{1}{\|\mathbf{v}\|}$
 
 
 Note that the definition of the directional derivative above can be expressed as a dot product of two vectors in $\mathbb{R}^2$:
@@ -405,9 +404,9 @@ Then, to show that a function is **not differentiable** at a point $(a,b)$, we c
 	- Show that the function is **not continuous** at $(a,b)$; recall, to do this it suffices to show **one path** (usually $x=y$ is easiest) with which the limit of the function at $(a,b)$ is not equal to $f(a,b)$
 
 There is a simpler definition; if the partial derivatives $f_{x},f_{y}$ **exist and are continuous** on a small disk centered at the point $(a, b)$, then $f$ is **differentiable** at $(a, b)$
-- Again, note the converse is not necessarily true; a differentiable function can have discontinuous partials at a point
 - This class of functions is termed $C^1$; we can use this theorem to prove that functions are differentiable on some required domain $R$ by determining the partial derivative functions and showing that they are continuous on $R$
 	- This is another definition of **smoothness**; recall the other definition which gave us $C^2$
+- Again, note the converse is not necessarily true; a **differentiable function can have discontinuous partials** at a point
 - Intuitively, differentiability at a point $(a,b)$ is defined as the existence of a tangent plane to the surface at that point (following from the existence of continuous partials); similar to the single variable definition with the existence of a tangent line
 Then, to show that a function is differentiable, we can:
 - Show that both partial derivatives exist and are continuous 
