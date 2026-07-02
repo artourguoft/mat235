@@ -390,7 +390,10 @@ This limit means that we require **the error to go to** $0$ **faster than the di
 $$
 \lim_{h,k\to 0}\frac{E(a+h,b+k)}{\sqrt{ h^2 +k^2 }}=\frac{(f(a+h,b+k)-f(a,b))-(f_{x}(a,b)h+f_{y}(a,b)k)}{\sqrt{ h^2 +k^2 }}=\frac{\Delta f-df}{\sqrt{ h^2 +k^2 }}=0 
 $$
-This also means the function is **smooth** around $(a,b)$ meaning it is differentiable and thus continuous. As was the case with single variable functions, continuity$\centernot\implies$differentiability, whereas differentiability$\implies$continuity. A function is differentiable on a region $R$ if it is differentiable at all points on $R$. 
+This also means the function is **smooth** around $(a,b)$ meaning it is differentiable and thus continuous. As was the case with single variable functions: 
+- Differentiability$\implies$continuity
+- Continuity$\centernot\implies$differentiability 
+A function is differentiable on as region $R$ if it is differentiable at all points on $R$. 
 
 The above also means that a differentiable function at a point **necessarily has both partial derivatives** at that point:
 - Differentiability$\implies f_{x}(a,b), f_{y}(a,b)$ exist
@@ -402,6 +405,7 @@ Then, to show that a function is **not differentiable** at a point $(a,b)$, we c
 	- Show that the function is **not continuous** at $(a,b)$; recall, to do this it suffices to show **one path** (usually $x=y$ is easiest) with which the limit of the function at $(a,b)$ is not equal to $f(a,b)$
 
 There is a simpler definition; if the partial derivatives $f_{x},f_{y}$ **exist and are continuous** on a small disk centered at the point $(a, b)$, then $f$ is **differentiable** at $(a, b)$
+- Again, note the converse is not necessarily true; a differentiable function can have discontinuous partials at a point
 - This class of functions is termed $C^1$; we can use this theorem to prove that functions are differentiable on some required domain $R$ by determining the partial derivative functions and showing that they are continuous on $R$
 	- This is another definition of **smoothness**; recall the other definition which gave us $C^2$
 - Intuitively, differentiability at a point $(a,b)$ is defined as the existence of a tangent plane to the surface at that point (following from the existence of continuous partials); similar to the single variable definition with the existence of a tangent line
