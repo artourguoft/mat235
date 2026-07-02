@@ -452,18 +452,22 @@ To locate **global extrema** for a function multivariable function on a region o
 - Evaluate $f$ at the critical points, or classify by the Second Derivatives Test if needed
 - If the region $R$ is **closed**, evaluate $f$ for extrema along the boundaries; ie. consider the boundaries as cross-sections and determine the extrema for the resulting single variable functions
 	- Recall here that critical points of a single variable function $g$ occur when $g'(a)=0$ or undefined; sometimes even this is not needed as the function is monotonically increasing or decreasing
-- If $R$ is **not closed**, then we need to check the limits of the function as we approach the boundaries (recall how multivariable limits work; hold some variable constant and move the relevant variable)
+- If $R$ is **not closed**, then we need to check the limits of the function as we approach the boundaries (recall how multivariable limits work; hold some variable as a constant $c$ (since picking one specific value may not suffice) and move the relevant variable)
 - If $R$ is **not bounded**, then we need to check the limits of the function as we approach infinities (same as above)
 ### <u>[15.3]: Constrained Optimization</u>
 To optimize $f(x, y)$ subject to a constraint $g(x, y) = k$ for some constant $k\in \mathbb{R}$, we want to find the intersection points with the largest $f$ contour value on the graph of the $g$ contour $g(x, y) = k$
-- By definition of contours, extrema should occur at points where the contours of $f$ are tangent to $g(x, y) = k$; ie. at an extremum $(a,b)$, we should have $\nabla f(a,b)=\lambda\nabla g(a,b)$ for some constant $\lambda \in \mathbb{R}$
+- By definition of contours, extrema should occur at points where the contours of $f$ are tangent to $g(x, y) = k$; ie. at an extremum $(a,b)$, we should have $\nabla f(a,b)=\lambda\nabla g(a,b)$ for some constant $\lambda \in \mathbb{R}$ called the **Lagrange multiplier**
+	- The Lagrange multiplier is the **rate of change** of $f$ per unit increase in the level of the constraint function $g$
 
 However, $\nabla g$ may not always be well defined and nonzero; if $f(x,y)$ has an extrema subject to a constraint $g(x,y) = k$ at $(a,b)$, then $(a,b)$ satisfies **one** of:
 1. $(a,b)$ is an end point of $g(a,b) = k$
 2. $\nabla g(a,b) = \mathbf{0}$
 3. $\nabla f(a,b) = \lambda\nabla g(a,b)$; this is the happy path we defined above, and the condition that we check last
-	- We calculate all the necessary partials then set up the equality above, then substitute back into $f$ or $g$ to solve for $a,b$ (or use Lagrangian shortcut below)
-We determine all $(a,b)$ that satisfy any of the conditions above, and evaluate $f$ to determine the correct extrema
+	- We calculate all the necessary partials then set up the equality above, then substitute back into $g$ to solve for $a,b$ (or use Lagrangian shortcut below); ie. solving a system of **three** equations:
+		- $f_{x}=\lambda g_{x}$
+		- $f_{y}=\lambda g_{y}$
+		- $g(x,y)=k$
+We determine all $(a,b)$ that satisfy **any** of the conditions above, and evaluate $f$ to determine the correct extrema
 
 If the constraint $g(x,y)\leq k$ is given by an inequality instead of equality, we use the following strategy:
 1. Find all points in the region $g(x, y) < k$ where $\nabla f=\mathbf{0}$ or undefined
@@ -473,4 +477,6 @@ Then evaluate points found in the previous two steps and compare their values as
 **Lagrangian Function:** $L(x,y,\lambda) = f(x,y)-\lambda(g(x,y)-k)$
 - Then $(a,b)$ is an extremum under the constraint $g(x,y)=k$ with Lagrange multiplier $\lambda_{c}$ iff $\nabla L(a,b,\lambda_{c})=0$
 	- This gradient gives us a system of equations to solve for $(a,b)$ as a shortcut
-	- Note, endpoints still have to be checked
+	- Note, endpoints of $g$ still have to be checked
+
+If the **constraint function is a closed and bounded** shape (ex. a circle like $x^2 + y^2 = 1$) then EVT guarantees that an absolute maximum and minimum must exist; in this case simply evaluate the objective function $f$ at all the points you found and classify the extrema by direct comparison
