@@ -354,14 +354,21 @@ The former of the vectors is called the **gradient** vector of $f$, notated as $
 $$
 \nabla f=(f_{x}(x,y),f_{y}(x,y))=\frac{\partial f}{\partial x}\mathbf{i}+\frac{\partial f}{\partial y}\mathbf{j}
 $$
-Looking back at the dot product expression of the directional derivative, we can rewrite this with the geometric identity of the dot product. If $\theta$ is the angle between $\nabla f$ and $\mathbf{u}$, and noting that the direction vector $\mathbf{u}$ is a unit vector, we get:
+With this definition, the gradient must then point in the exact direction of the **greatest directional derivative** at a point:
+- Since the derivative is measured per unit change; $||\mathbf{u}||=1=\sqrt{u_{x}^2+u_{y}^2 }\implies u_{y}=\sqrt{1-u_{x}^2}\implies f_{\mathbf{u}}(x,y)=f_{x}(x,y)u_{x}+f_{y}(x,y)(\sqrt{1-u_{x}^2})$
+- Then to get the critical points with respect to $u_{x}$ of the directional derivative we set $\frac{\partial}{\partial u_{x}}f_{\mathbf{u}}(x,y)=0=f_{x}(x,y)-f_{y}(x,y)\left(\frac{-u_{x}}{\sqrt{1-u_{x}^2}}\right)$ from which we simplify to $\frac{f_{x}(x,y)}{f_{y}(x,y)}=\frac{u_{x}}{u_{y}}$
+	- Thus the directional derivative is maximized and minimized when the ratio of the direction vector components is the same as that of the gradient (negated to point exactly opposite of the gradient for the minimum directional derivative)
+	- This is intuitive since we express the components of the direction vector as a function that forms a half circle (ie. is non-linear) on $x \in[-1,1]$ where $y=f(x)=\sqrt{1-x^2}$ and $f'(x)=-\frac{x}{\sqrt{1-x^2}}$
+		- This is why simply taking $\mathbf{i}$ or $\mathbf{j}$ as the direction by whichever partial in the gradient is greater **does not maximize** the directional derivative; the derivative of $y$ with respect to $x$ near $x=\pm1$ goes to $\pm \infty$, and same for the derivative of $x$ with respect to $y$ near $y=1$ 
+
+We can also rewrite the dot product expression of the directional derivative with the geometric identity of the dot product; if $\theta$ is the angle between $\nabla f$ and $\mathbf{u}$, and noting that the direction vector $\mathbf{u}$ is a unit vector, we get:
 $$
 \begin{align}
 f_{\mathbf{u}}(x,y)=\nabla f(x,y)\cdot \mathbf{u}&=||\nabla f(x,y)||\;||\mathbf{u}||\;\cos\theta \\
 &=||\nabla f(x,y)||\cos\theta
 \end{align}
 $$
-From this we can deduce another relationship between the directional derivative and the gradient:
+From this we can again deduce the relationship between the directional derivative and the gradient:
 - $f_{\mathbf{u}}(x,y)=||\nabla f(x,y)||$ is the **maximum**, and occurs when $\cos\theta=1$ so $\theta=0$; when $\nabla f$ and $\mathbf{u}$ point in the exact **same** direction
 - $f_{\mathbf{u}}(x,y)=-||\nabla f(x,y)||$ is the **minimum**, and occurs when $\cos\theta=-1$ so $\theta=\pi$; when $\nabla f$ and $\mathbf{u}$ point in the exact **opposite** directions
 - $f_{\mathbf{u}}(x,y)=0$ suggests the direction vector is pointing in a direction which would keep you **along the same level curve** of the surface, and occurs when $\cos\theta=0$ so $\theta=\pm\frac{\pi}{2}$; when $\nabla f$ and $\mathbf{u}$ are perpendicular
