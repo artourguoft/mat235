@@ -326,6 +326,10 @@ Partial derivatives with respect to $x,y$ gave us the rates of change in the pos
 $$
 f_{\mathbf{u}}(x,y)=\lim_{ h \to 0 }\frac{f(x+hu_{x},y+hu_{y})-f(x,y)}{h}
 $$
+The direction vector must be a unit vector as a consequence of the definition of derivative as the **per unit** instantaneous rate of change
+- With single variable functions, $h$ itself was the distance per unit of which we were measuring the slope of the tangent line
+- Now $h$ becomes a scalar on the direction vector, and since per unit instantaneous rate of change implies $h=1$, to get $h\cdot||\mathbf{u}||=1\cdot||\mathbf{u}||=1$ we require $||\mathbf{u}||=1$; ie. $\mathbf{u}$ has to be a unit vector
+
 Recall from local linearity that the differential $f_{x}(x,y)dx+f_{y}(x,y)dy$ locally approximates $\Delta f$ by $df$ given that $f$ is **differentiable** at $(x,y)$ (meaning both partials exist and are continuous; will define this in Chapter 14.8), thus as $h\to 0$:
 $$
 \begin{align}
@@ -354,12 +358,12 @@ The former of the vectors is called the **gradient** vector of $f$, notated as $
 $$
 \nabla f=(f_{x}(x,y),f_{y}(x,y))=\frac{\partial f}{\partial x}\mathbf{i}+\frac{\partial f}{\partial y}\mathbf{j}
 $$
-With this definition, the gradient must then point in the exact direction of the **greatest directional derivative** at a point:
-- Since the derivative is measured per unit change; $||\mathbf{u}||=1=\sqrt{u_{x}^2+u_{y}^2 }\implies u_{y}=\sqrt{1-u_{x}^2}\implies f_{\mathbf{u}}(x,y)=f_{x}(x,y)u_{x}+f_{y}(x,y)(\sqrt{1-u_{x}^2})$
-- Then to get the critical points with respect to $u_{x}$ of the directional derivative we set $\frac{\partial}{\partial u_{x}}f_{\mathbf{u}}(x,y)=0=f_{x}(x,y)-f_{y}(x,y)\left(\frac{-u_{x}}{\sqrt{1-u_{x}^2}}\right)$ from which we simplify to $\frac{f_{x}(x,y)}{f_{y}(x,y)}=\frac{u_{x}}{u_{y}}$
-	- Thus the directional derivative is maximized and minimized when the ratio of the direction vector components is the same as that of the gradient (negated to point exactly opposite of the gradient for the minimum directional derivative)
-	- This is intuitive since we express the components of the direction vector as a function that forms a half circle (ie. is non-linear) on $x \in[-1,1]$ where $y=f(x)=\sqrt{1-x^2}$ and $f'(x)=-\frac{x}{\sqrt{1-x^2}}$
-		- This is why simply taking $\mathbf{i}$ or $\mathbf{j}$ as the direction by whichever partial in the gradient is greater **does not maximize** the directional derivative; the derivative of $y$ with respect to $x$ near $x=\pm1$ goes to $\pm \infty$, and same for the derivative of $x$ with respect to $y$ near $y=1$ 
+From this definition, we deduce that the gradient must point in the exact direction of the **greatest directional derivative** at a point:
+- The directional derivative is measured per unit; $||\mathbf{u}||=1=\sqrt{u_{x}^2+u_{y}^2 }\implies u_{y}=\sqrt{1-u_{x}^2}\implies f_{\mathbf{u}}(x,y)=f_{x}(x,y)u_{x}+f_{y}(x,y)(\sqrt{1-u_{x}^2})$ which is a single variable function of $u_{x}$ (the partial derivatives are constants at a given point)
+- Then to get the critical points of $f_{\mathbf{u}}(x,y)$ with respect to $u_{x}$ we set $\frac{d}{d u_{x}}f_{\mathbf{u}}(x,y)=0=f_{x}(x,y)-f_{y}(x,y)\left(\frac{-u_{x}}{\sqrt{1-u_{x}^2}}\right)$ from which we simplify to $\frac{f_{x}(x,y)}{f_{y}(x,y)}=\frac{u_{x}}{u_{y}}$
+	- Thus the directional derivative is maximized and minimized when the ratio of the direction vector components is the same as that of the components of the gradient
+	- This is intuitive if we express the components of the direction vector as a function that forms a half circle (ie. is non-linear) on $x \in[-1,1]$ where $y=f(x)=\sqrt{1-x^2}$ and $f'(x)=-\frac{x}{\sqrt{1-x^2}}$
+		- This is why simply taking $\mathbf{i}$ or $\mathbf{j}$ as the direction by whichever partial in the gradient is greater **does not maximize** the directional derivative; the derivative of $y$ with respect to $x$ near $x=\pm1$ goes to $\pm \infty$ (ie. small change in $x$ yields relatively large change in $y$)
 
 We can also rewrite the dot product expression of the directional derivative with the geometric identity of the dot product; if $\theta$ is the angle between $\nabla f$ and $\mathbf{u}$, and noting that the direction vector $\mathbf{u}$ is a unit vector, we get:
 $$
@@ -420,14 +424,14 @@ Then, to show that a function is differentiable, we can:
 ### <u>14.7: Extrema</u>
 **Fermat's Theorem:** if $f(x,y)$ has a local maximum or local minimum at a point $(a,b)$ and is **differentiable** there (recall, this means $f_{x}(a,b)$ and $f_{y}(a,b)$ exist and are continuous), then $f_{x}(a,b)=f_{y}(a,b)=0$
 - This can also be written in **gradient** form as $\nabla f(a,b)=\mathbf{0}$
-	- It follows from the definition of directional derivative for **differentiable** functions that **all directional derivatives** are also $0$
+	- It follows from the definition of directional derivative for **differentiable** functions that **all directional derivatives** are also $0$ at extrema
 	- If the one or both of the partial derivatives do not exist at the point $(a,b)$, then the function is not differentiable at that point and we cannot make any conclusions about the existence or values of various directional derivatives (would have to use definition of directional derivative)
-- This implies that the tangent plane at point $(a,b)$ is **horizontal plane**, since substituting $f_{x}(a,b)=f_{y}(a,b)=0$ into the equation of a plane yields the constant $f(a,b)$
+- This implies that the tangent plane at point $(a,b)$ is a **horizontal plane**, since substituting $f_{x}(a,b)=f_{y}(a,b)=0$ into the equation of a plane yields the constant $f(a,b)$
 
-Similar to single variable functions, points where both $f_{x}(a,b)=f_{y}(a,b)=0$ **or** one or both of these partials **does not exist**, are called **critical points**
-- Combined with Fermat's Theorem above, this means **all local extrema are critical points**, but just as it was with single variable functions **not all critical points are local extrema**!
+Similar to single variable functions, points where both $f_{x}(a,b)=f_{y}(a,b)=0$ **or** one or both partials **does not exist**, are called **critical points**
+- Combined with Fermat's Theorem above, this means **all local extrema are critical points**, but (as it was with single variable functions, for ex. $x^3$ at $0$) **not all critical points are local extrema**!
 If a point $(a,b)$ satisfies $f_{x}(a,b)=f_{y}(a,b)=0$ but is **not** an extrema, then it is a **saddle point**
-- One clear example is $f(x,y)=y^2-x^2$ and the point $f(0,0)$; this a critical point based on the gradient, but around any disk with a positive radius centred on $(0,0)$, $f$ will take on both positive and negative values, ie. it crosses the horizontal tangent plane at $f(0,0)$ (which in this case is the $xy$-plane)
+- One clear example is $f(x,y)=y^2-x^2$ and the point $f(0,0)$; this a critical point based on the gradient, but around any disk with a positive radius centred on $(0,0)$, $f$ will take on both positive and negative values, ie. it crosses the horizontal tangent plane at $f(0,0)$ (in this case the $xy$-plane)
 	- Thus, this point cannot be an extrema, and indeed the graph in this case resembles a saddle (this is not always the case)
 
 Once we have **identified critical points** by finding points $(a,b)$ where $f_{x}(a,b)=f_{y}(a,b)=0$ or DNE, how do we determine if they are local extrema?
@@ -447,14 +451,14 @@ If **any partials do not exist**, then we **cannot** use the Second Derivatives 
 - If both cross sections are less than or greater than $f(a,b)$ around the point; this suggests local extrema
 
 One common application of finding local extrema is **determining the shortest distance** between a point $(a,b,c)$ and a plane, which involves finding a point $(x,y,z)$ on the plane. The distance is $d=\sqrt{(x-a)^2+(y-b)^2+(z-c)^2}$, we then express $z$ as a function of $x$ and $y$ (from the given plane equation) and thus get $d^2=f(x,y)$, from where we do the second derivatives test process above.
-### <u>[15.2]: Optimization</u>
+### <u>[15.2]: Global Extrema and Optimization</u>
 If we restrict the domain of a two variable function, the resulting domain can be:
 - **Closed**; meaning the region is one which contains its boundary
 - **Bounded**; meaning the region does not stretch to infinity in any direction
 Regions of $\mathbb{R}^2$ can be bounded but not closed, bounded and closed, or neither
 
-**Extreme Value Theorem for Multi Variable Functions:** if $f$ is a **continuous** function on a **closed and bounded** region $R\subset \mathbb{R}^2$, then $f$ has a global maximum and a global minimum at some points in $R$
-- If $f$ is not continuous over $R$, or $R$ is not closed and bounded, then EVT cannot guarantee the existence of both global extrema
+**Extreme Value Theorem for Multi Variable Functions:** if $f$ is a **continuous** function on a **closed and bounded** region $R\subset \mathbb{R}^2$, then $f$ has **both** a global maximum and a global minimum at some points in $R$
+- If $f$ is not continuous over $R$, or $R$ is not closed and bounded, then EVT cannot guarantee the existence of either global extremum
 - This is analogous to the single variable EVT, wherein a continuous function on a closed interval ($\mathbb{R}^2$ analog is a bounded and closed region) is guaranteed to have both global extrema, but no guarantee otherwise
 
 To locate **global extrema** for a function multivariable function on a region of its domain $R\subset \mathbb{R}^2$:
